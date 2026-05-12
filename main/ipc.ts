@@ -102,33 +102,33 @@ export function registerIPCHandlers(ipcMain: IpcMain) {
     return { ok: true }
   })
 
-  // ── Blobs ──────────────────────────────────────────────────
-  ipcMain.handle('blobs:list', (_e, projectId: string) =>
-    db.prepare('SELECT * FROM blobs WHERE project_id=?').all(projectId)
+  // ── cards ──────────────────────────────────────────────────
+  ipcMain.handle('cards:list', (_e, projectId: string) =>
+    db.prepare('SELECT * FROM cards WHERE project_id=?').all(projectId)
   )
-  ipcMain.handle('blobs:create', (_e, { projectId, content, type, posX, posY }: any) => {
+  ipcMain.handle('cards:create', (_e, { projectId, content, type, posX, posY }: any) => {
     const id = randomUUID()
-    db.prepare('INSERT INTO blobs (id, project_id, content, type, pos_x, pos_y) VALUES (?,?,?,?,?,?)').run(id, projectId, content, type || 'text', posX || 100, posY || 100)
-    return db.prepare('SELECT * FROM blobs WHERE id=?').get(id)
+    db.prepare('INSERT INTO cards (id, project_id, content, type, pos_x, pos_y) VALUES (?,?,?,?,?,?)').run(id, projectId, content, type || 'text', posX || 100, posY || 100)
+    return db.prepare('SELECT * FROM cards WHERE id=?').get(id)
   })
-  ipcMain.handle('blobs:update', (_e, { id, content, tags, color, posX, posY, width, height, priority }: any) => {
-    db.prepare('UPDATE blobs SET content=?, tags=?, color=?, pos_x=?, pos_y=?, width=?, height=?, priority=? WHERE id=?')
+  ipcMain.handle('cards:update', (_e, { id, content, tags, color, posX, posY, width, height, priority }: any) => {
+    db.prepare('UPDATE cards SET content=?, tags=?, color=?, pos_x=?, pos_y=?, width=?, height=?, priority=? WHERE id=?')
       .run(content, JSON.stringify(tags || []), color, posX, posY, width, height, priority, id)
     return { ok: true }
   })
-  ipcMain.handle('blobs:delete', (_e, id: string) => {
-    db.prepare('DELETE FROM blobs WHERE id=?').run(id)
+  ipcMain.handle('cards:delete', (_e, id: string) => {
+    db.prepare('DELETE FROM cards WHERE id=?').run(id)
     return { ok: true }
   })
-  ipcMain.handle('blobs:connections:list', (_e, projectId: string) =>
-    db.prepare('SELECT bc.* FROM blob_connections bc JOIN blobs b ON bc.blob_from=b.id WHERE b.project_id=?').all(projectId)
+  ipcMain.handle('cards:connections:list', (_e, projectId: string) =>
+    db.prepare('SELECT bc.* FROM blob_connections bc JOIN cards b ON bc.blob_from=b.id WHERE b.project_id=?').all(projectId)
   )
-  ipcMain.handle('blobs:connections:create', (_e, { blobFrom, blobTo }: any) => {
+  ipcMain.handle('cards:connections:create', (_e, { blobFrom, blobTo }: any) => {
     const id = randomUUID()
     db.prepare('INSERT INTO blob_connections (id, blob_from, blob_to) VALUES (?,?,?)').run(id, blobFrom, blobTo)
     return { ok: true, id }
   })
-  ipcMain.handle('blobs:connections:delete', (_e, id: string) => {
+  ipcMain.handle('cards:connections:delete', (_e, id: string) => {
     db.prepare('DELETE FROM blob_connections WHERE id=?').run(id)
     return { ok: true }
   })

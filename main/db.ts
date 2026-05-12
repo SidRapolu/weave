@@ -60,7 +60,7 @@ function migrate() {
       created_at INTEGER NOT NULL DEFAULT (unixepoch()),
       updated_at INTEGER NOT NULL DEFAULT (unixepoch())
     );
-    CREATE TABLE IF NOT EXISTS blobs (
+    CREATE TABLE IF NOT EXISTS cards (
       id         TEXT PRIMARY KEY,
       project_id TEXT NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
       content    TEXT NOT NULL DEFAULT '',
@@ -75,12 +75,12 @@ function migrate() {
     );
     CREATE TABLE IF NOT EXISTS blob_connections (
       id        TEXT PRIMARY KEY,
-      blob_from TEXT NOT NULL REFERENCES blobs(id) ON DELETE CASCADE,
-      blob_to   TEXT NOT NULL REFERENCES blobs(id) ON DELETE CASCADE
+      blob_from TEXT NOT NULL REFERENCES cards(id) ON DELETE CASCADE,
+      blob_to   TEXT NOT NULL REFERENCES cards(id) ON DELETE CASCADE
     );
     CREATE INDEX IF NOT EXISTS idx_documents_project ON documents(project_id);
     CREATE INDEX IF NOT EXISTS idx_ply_cells_document ON ply_cells(document_id);
     CREATE INDEX IF NOT EXISTS idx_ply_cells_category ON ply_cells(category_id);
-    CREATE INDEX IF NOT EXISTS idx_blobs_project ON blobs(project_id);
+    CREATE INDEX IF NOT EXISTS idx_cards_project ON cards(project_id);
   `)
 }

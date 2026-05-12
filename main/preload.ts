@@ -36,15 +36,15 @@ contextBridge.exposeInMainWorld('weave', {
     update: (data: any) => ipcRenderer.invoke('world:update', data),
     delete: (id: string) => ipcRenderer.invoke('world:delete', id),
   },
-  blobs: {
-    list: (projectId: string) => ipcRenderer.invoke('blobs:list', projectId),
-    create: (data: any) => ipcRenderer.invoke('blobs:create', data),
-    update: (data: any) => ipcRenderer.invoke('blobs:update', data),
-    delete: (id: string) => ipcRenderer.invoke('blobs:delete', id),
+  cards: {
+    list: (projectId: string) => ipcRenderer.invoke('cards:list', projectId),
+    create: (data: any) => ipcRenderer.invoke('cards:create', data),
+    update: (data: any) => ipcRenderer.invoke('cards:update', data),
+    delete: (id: string) => ipcRenderer.invoke('cards:delete', id),
     connections: {
-      list: (projectId: string) => ipcRenderer.invoke('blobs:connections:list', projectId),
-      create: (data: any) => ipcRenderer.invoke('blobs:connections:create', data),
-      delete: (id: string) => ipcRenderer.invoke('blobs:connections:delete', id),
+      list: (projectId: string) => ipcRenderer.invoke('cards:connections:list', projectId),
+      create: (data: any) => ipcRenderer.invoke('cards:connections:create', data),
+      delete: (id: string) => ipcRenderer.invoke('cards:connections:delete', id),
     },
   },
 })

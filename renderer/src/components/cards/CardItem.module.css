@@ -1,0 +1,200 @@
+.card {
+  position: absolute;
+  border-radius: 24px;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  cursor: move;
+  user-select: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  min-width: 180px;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* edge connector ring */
+.edgeRing {
+  position: absolute;
+  inset: -6px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  cursor: crosshair;
+  z-index: 20;
+  transition: border-color 0.12s;
+}
+
+.card:hover .edgeRing {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.edgeRing:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* header */
+.header {
+  padding: 10px 12px 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.colorDots {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.1s, transform 0.1s;
+}
+
+.colorDot:hover { transform: scale(1.2); }
+.colorDotActive { border-color: rgba(255, 255, 255, 0.6); }
+
+.headerActions {
+  display: flex;
+  gap: 4px;
+}
+
+.expandBtn {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: color 0.1s;
+}
+.expandBtn:hover { color: rgba(255, 255, 255, 0.7); }
+
+.deleteBtn {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: color 0.1s;
+  opacity: 0;
+}
+.card:hover .deleteBtn { opacity: 1; }
+.deleteBtn:hover { color: var(--acc-text); }
+
+/* body */
+.body {
+  padding: 0 14px 10px;
+}
+
+.content {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: var(--font);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  cursor: text;
+}
+.content::placeholder { color: rgba(255, 255, 255, 0.2); }
+
+.linkedCell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.linkedLabel { font-size: 8px; color: rgba(255, 255, 255, 0.3); letter-spacing: 0.8px; text-transform: uppercase; }
+.linkedTitle { font-size: 12px; color: rgba(255, 255, 255, 0.8); }
+
+/* expanded details */
+.details {
+  padding: 8px 14px 10px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.tag button { font-size: 9px; color: rgba(255, 255, 255, 0.3); }
+.tag button:hover { color: var(--acc-text); }
+
+.tagInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font);
+  width: 70px;
+}
+.tagInput::placeholder { color: rgba(255, 255, 255, 0.2); }
+
+.priorityRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.priorityLabel {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.priorityBtn {
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.1s;
+}
+.priorityBtn:hover { border-color: rgba(255, 255, 255, 0.3); color: rgba(255, 255, 255, 0.7); }
+.priorityBtnActive { border-color: var(--acc-border); color: var(--acc-text); background: var(--acc-bg); }
+
+/* resize handle */
+.resizeHandle {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  cursor: ew-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.card:hover .resizeHandle { opacity: 1; }
+.resizeHandle::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 4px 0;
+}

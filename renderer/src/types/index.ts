@@ -108,7 +108,7 @@ declare global {
         update: (data: any) => Promise<{ ok: boolean }>
         delete: (id: string) => Promise<{ ok: boolean }>
       }
-      blobs: {
+      cards: {
         list: (projectId: string) => Promise<Blob[]>
         create: (data: any) => Promise<Blob>
         update: (data: any) => Promise<{ ok: boolean }>
