@@ -1,0 +1,24 @@
+.cell { background: var(--bg3); border: 0.5px solid var(--border); border-left: 3px solid var(--border2); border-radius: var(--r); overflow: hidden; transition: border-color 0.12s; }
+.cell:hover { border-color: var(--border2); }
+.cellHeader { display: flex; align-items: center; gap: 7px; padding: 8px 10px; cursor: pointer; }
+.threadDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.titleInput { flex: 1; background: transparent; border: none; outline: none; font-size: 12px; font-weight: 500; color: var(--text); }
+.titleInput::placeholder { color: var(--text3); }
+.expandBtn { font-size: 10px; color: var(--text3); padding: 0 2px; }
+.deleteBtn { font-size: 10px; color: var(--text3); padding: 2px 4px; border-radius: 2px; opacity: 0; transition: opacity 0.1s, color 0.1s; }
+.cell:hover .deleteBtn { opacity: 1; }
+.deleteBtn:hover { color: var(--acc-text); }
+.cellBody { padding: 8px 10px 10px; border-top: 0.5px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.fieldLabel { font-size: 9px; color: var(--text3); letter-spacing: 0.8px; text-transform: uppercase; }
+.select { background: var(--bg2); border: 0.5px solid var(--border2); border-radius: var(--r-sm); padding: 4px 8px; font-size: 11px; color: var(--text2); outline: none; font-family: var(--font); }
+.select:focus { border-color: var(--acc-border); }
+.bodyInput { background: var(--bg2); border: 0.5px solid var(--border2); border-radius: var(--r-sm); padding: 6px 8px; font-size: 11px; color: var(--text2); outline: none; resize: vertical; font-family: var(--font); line-height: 1.5; }
+.bodyInput:focus { border-color: var(--acc-border); }
+.bodyInput::placeholder { color: var(--text3); }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.tag { display: flex; align-items: center; gap: 3px; padding: 2px 7px; background: var(--bg4); border: 0.5px solid var(--border2); border-radius: 10px; font-size: 10px; color: var(--text2); }
+.tag button { font-size: 9px; color: var(--text3); margin-left: 1px; }
+.tag button:hover { color: var(--acc-text); }
+.tagInput { background: transparent; border: none; outline: none; font-size: 10px; color: var(--text2); width: 80px; }
+.tagInput::placeholder { color: var(--text3); }

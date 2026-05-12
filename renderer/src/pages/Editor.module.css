@@ -1,0 +1,115 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg);
+}
+.titlebar {
+  height: 44px;
+  background: var(--bg2);
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px 0 80px;
+  gap: 10px;
+  flex-shrink: 0;
+  -webkit-app-region: drag;
+}
+.backBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  color: var(--text2);
+  -webkit-app-region: no-drag;
+  transition: background 0.1s;
+}
+.backBtn:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+.backBtn svg {
+  width: 16px;
+  height: 16px;
+}
+.projectName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.tabs {
+  display: flex;
+  gap: 2px;
+  margin-left: 16px;
+  -webkit-app-region: no-drag;
+}
+.tab {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  color: var(--text3);
+  transition:
+    background 0.1s,
+    color 0.1s;
+}
+.tab:hover {
+  color: var(--text2);
+}
+.tabActive {
+  background: var(--bg3);
+  color: var(--text);
+}
+.addPlyBtn {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  border: 0.5px solid var(--acc-border);
+  color: var(--acc-text);
+  -webkit-app-region: no-drag;
+  transition: background 0.1s;
+}
+.addPlyBtn:hover {
+  background: var(--acc-bg);
+}
+.body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+.editorArea {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.editorRow {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+.textEditorWrap {
+  flex-shrink: 0;
+  transition: width 0.2s;
+  overflow: hidden;
+  border-right: 0.5px solid var(--border);
+}
+.plyWrap {
+  flex: 1;
+  min-width: 240px;
+  overflow: hidden;
+  border-right: 0.5px solid var(--border);
+}
+.noDoc {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noDocText {
+  font-size: 13px;
+  color: var(--text3);
+}

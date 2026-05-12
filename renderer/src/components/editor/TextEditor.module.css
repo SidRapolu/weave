@@ -1,0 +1,73 @@
+.wrap { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+.titleArea { padding: 32px 48px 16px; flex-shrink: 0; border-bottom: 0.5px solid var(--border); }
+.docTitle { font-size: 22px; font-weight: 600; color: var(--text); letter-spacing: -0.5px; }
+.editorArea { display: flex; flex: 1; overflow: hidden; }
+
+.margin {
+  width: 36px;
+  flex-shrink: 0;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  background: var(--bg2);
+  border-right: 0.5px solid var(--border);
+}
+
+.indicator { display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; padding: 2px; border-radius: 3px; transition: background 0.1s; background: none; border: none; }
+.indicator:hover { background: var(--bg3); }
+.indicatorBar { width: 4px; height: 20px; border-radius: 2px; background: var(--indicator-color, #4a5568); opacity: 0.5; transition: opacity 0.1s, transform 0.1s; }
+.indicator:hover .indicatorBar { opacity: 1; }
+.indicatorActive .indicatorBar { opacity: 1; transform: scaleX(1.4); }
+.indicatorCount { font-size: 8px; color: var(--text3); font-family: var(--font-mono); }
+
+.editorRelative { flex: 1; position: relative; overflow: hidden; display: flex; }
+
+.editor {
+  flex: 1;
+  padding: 24px 48px;
+  overflow-y: auto;
+  outline: none;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text);
+  caret-color: var(--acc);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.editor:empty::before { content: attr(data-placeholder); color: var(--text3); pointer-events: none; }
+.editor ::selection { background: rgba(192, 57, 43, 0.15); }
+
+/* selection tooltip */
+.selectionTooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  z-index: 100;
+  pointer-events: all;
+}
+
+.tooltipBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--bg2);
+  border: 0.5px solid var(--border2);
+  border-radius: var(--r);
+  font-size: 11px;
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.tooltipBtn:hover { background: var(--bg3); }
+
+.tooltipThread {
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  color: #fff;
+  opacity: 0.9;
+}

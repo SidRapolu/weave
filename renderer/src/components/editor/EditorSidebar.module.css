@@ -1,0 +1,39 @@
+.sidebar { width: 200px; background: var(--bg2); border-right: 0.5px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+.section { padding: 10px 0; border-bottom: 0.5px solid var(--border); }
+.sectionHeader { display: flex; align-items: center; justify-content: space-between; padding: 0 12px 6px; }
+.sectionLabel { font-size: 9px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; }
+.addBtn { font-size: 16px; color: var(--text3); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 3px; transition: color 0.1s, background 0.1s; }
+.addBtn:hover { color: var(--text); background: var(--bg3); }
+.list { display: flex; flex-direction: column; gap: 1px; }
+.docItem { display: flex; align-items: center; gap: 7px; padding: 5px 12px; cursor: pointer; transition: background 0.1s; position: relative; }
+.docItem:hover { background: var(--bg3); }
+.docItemActive { background: var(--bg3); }
+.docItemActive::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; background: var(--acc); border-radius: 1px; }
+.docIcon { width: 12px; height: 12px; color: var(--text3); flex-shrink: 0; }
+.docName { font-size: 12px; color: var(--text2); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.docItemActive .docName { color: var(--text); }
+.deleteBtn { font-size: 10px; color: var(--text3); opacity: 0; padding: 2px 4px; border-radius: 2px; transition: opacity 0.1s, color 0.1s; }
+.docItem:hover .deleteBtn, .threadItem:hover .deleteBtn { opacity: 1; }
+.deleteBtn:hover { color: var(--acc-text); }
+.newItem { padding: 4px 10px 6px; }
+.newThread { padding: 6px 10px; display: flex; flex-direction: column; gap: 6px; }
+.newInput { width: 100%; background: var(--bg3); border: 0.5px solid var(--border2); border-radius: var(--r-sm); padding: 5px 8px; font-size: 11px; color: var(--text); outline: none; }
+.newInput:focus { border-color: var(--acc-border); }
+.newInput::placeholder { color: var(--text3); }
+.colorPicker { display: flex; gap: 5px; flex-wrap: wrap; }
+.colorDot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid transparent; cursor: pointer; transition: border-color 0.1s; }
+.colorDotActive { border-color: var(--text); }
+.threadBtns { display: flex; gap: 6px; justify-content: flex-end; }
+.cancelBtn { font-size: 10px; padding: 3px 8px; border-radius: var(--r-sm); border: 0.5px solid var(--border2); color: var(--text2); }
+.cancelBtn:hover { background: var(--bg3); }
+.createBtn { font-size: 10px; padding: 3px 8px; border-radius: var(--r-sm); background: var(--acc); color: #fff; }
+.createBtn:hover { opacity: 0.85; }
+.threadItem { display: flex; align-items: center; gap: 8px; padding: 5px 12px; position: relative; }
+.threadItem:hover { background: var(--bg3); }
+.threadDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.threadName { font-size: 11px; color: var(--text2); flex: 1; }
+
+.threadItemOpen { background: var(--bg3); }
+.plyToggle { font-size: 9px; color: var(--text3); padding: 2px 4px; border-radius: 3px; transition: color 0.1s; }
+.plyToggle:hover { color: var(--text2); }
+.plyToggleOpen { color: var(--acc-text); }
